@@ -26,6 +26,7 @@ Not a good practice:
 ```
 public FixMe(String name) {
     this(name, null);
+}
 ```         
 
 - Don't forget to add getters for *private* methods.
