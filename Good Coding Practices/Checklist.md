@@ -101,7 +101,19 @@ public class Brook extends BodyOfWater {
 
 - A good pattern is to first make an Interface then make an AbstractClass which implements that Interface and provide the common implementations then provide the ConcreteClasses. - [check this out - why abstract class is not forced to implement interfaces](https://stackoverflow.com/questions/197893/why-an-abstract-class-implementing-an-interface-can-miss-the-declaration-impleme)
  
-    
+```
+I need to add something of a warning to these answers. Coupling the base class to the interface creates a force in the structure of that class. In your basic example, it's a no brainer that the two should be coupled, but that may not hold true in all cases.
+
+Take Java's collection framework classes:
+
+abstract class AbstractList
+class LinkedList extends AbstractList implements Queue
+The fact that the Queue contract is implemented by LinkedList did not push the concern into AbstractList.
+
+What's the distinction between the two cases? The purpose of BaseWorker was always (as communicated by its name and interface) to implement operations in IWorker. The purpose of AbstractList and that of Queue are divergent, but a descenant of the former can still implement the latter contract.
+```
+
+For more info: https://softwareengineering.stackexchange.com/questions/163641/interfaces-on-an-abstract-class
 
     
     
