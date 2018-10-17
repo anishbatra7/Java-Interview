@@ -28,11 +28,11 @@ private static final String defaultSecondary = "Anish";
 ```
 public String getName() {
         return name;
-    }
+     }
 
-	public String getSecondary() {
+public String getSecondary() {
 		return secondary;
-	}
+     }
 ```
 - default values should *private static final* 
 ```
@@ -40,8 +40,67 @@ private static final String defaultSecondary = "Anish";
 ```
 - use "extract methods" functionality of Eclipse formatter to make code more modular
 
--
+- When creating abstract classes need to keep encapsulation in mind. What fields/methods do you want to expose to everyone, just subclasses or no one.
 
+○ If everyone (and method as fields should rarely if ever be public) mark public
+○ If just subclasses mark protected
+○ If just used by abstract class mark private
+
+```
+public abstract class BodyOfWater {
+
+    private final String name;
+    private final double volume;
+    private final int connectedWaterBodiesCount;
+    private final double flow;
+    
+    // protected constructor - so sub-classes can access it 
+    protected BodyOfWater(String name, double volume, int connectedWaterBodiesCount, double flow) {
+        this.name = name;
+        this.volume = volume;
+        this.connectedWaterBodiesCount = connectedWaterBodiesCount;
+        this.flow = flow;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public double getVolume() {
+        return volume;
+    }
+
+    public int getConnectedWaterBodiesCount() {
+        return connectedWaterBodiesCount;
+    }
+
+    public double getFlow() {
+        return flow;
+    }
+}
+```
+This is the class which extends the above "abstract class"
+```
+public class Brook extends BodyOfWater {
+
+    private final String notCommon;
+
+    public Brook(String name, double volume, int connectedWaterBodiesCount, double flow, String notCommon) {
+        super(name, volume, connectedWaterBodiesCount, flow);
+        this.notCommon = notCommon;
+    }
+
+    public String getNotCommon() {
+        return notCommon;
+    }
+}
+```
+- Take care of how you implement hashCode and equals
+
+- Don't put constants in interface
+
+- A good pattern is to first make an Interface then make an AbstractClass which implements that Interface and provide the common implementations then provide the ConcreteClasses. - [check this out - why abstract class is not forced to implement interfaces](https://stackoverflow.com/questions/197893/why-an-abstract-class-implementing-an-interface-can-miss-the-declaration-impleme)
+ 
     
 
     
