@@ -52,4 +52,6 @@ Java is CBV = call by value
 ○ parameters to method are copied to new value
 ○ method cannot change reference (but can change values associated with the reference!)
 
+### Is there some way to update final or final static variables in Java?
 
+- Read this: https://stackoverflow.com/questions/3301635/change-private-static-final-field-using-java-reflection
