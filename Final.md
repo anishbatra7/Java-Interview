@@ -45,9 +45,8 @@ Creating your own annotations:
 ```
 @Target(ElementType.METHOD)
 @Retention(RetentionPolicy.RUNTIME)
-public @interface Authorized{
-
-String headerKey( ) default “Bearer”;
+public @interface Authorized {
+     String headerKey( ) default “Bearer”;
 }
 ```
 
