@@ -65,11 +65,13 @@ Remember that Echo<Integer> is not an instance of type Echo<Number> (whereas Int
 We’ve made GiftPrinter take a Gift of generic type Object and as we know, Gift<Computer> does not extend from Gift<Object> 
 What we want is the generically typed Gift which is the supertype of all other generically typed Gift types. In Java, this is called the wildcard type! 
   
-Wildcard types can only be used on instances (not class or methods) 
+Wildcard types can only be used on instances (not class or methods)
+```
 You cannot do public class Type<?> { 
 You cannot do public <?> void methodName() { 
 You cannot do public ? methodName() { 
-You can do public void methodName(Gift<?> gift) { 
+You can do public void methodName(Gift<?> gift) {
+```
 Only objects can use wildcard type parameters (variables, method parameters, etc.). 
 
 - **Lecture 8**  – Collections in Java. Iterator – to traverse a collection. for-each loop. Before explaining what went wrong (exactly) here’s how to correctly remove from a Collection while iterating.
