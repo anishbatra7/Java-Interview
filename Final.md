@@ -1,6 +1,34 @@
 - **Lecture 6**  – Exceptions/ Debugging/Annotations/ Regex in Java. Checked and Unchecked. Throwing and catching Exceptions. Hierarchy when catching (order matters). Custom Exceptions (create your own exception type by extending Exception). Finally clause (always executes no matter exception is thrown or not).
 
+There are two main types that extend Throwable
+> Exception
+> Includes checked and unchecked exceptions.
+> Unchecked exceptions should extend from RuntimeException
+----
+Java 1.7 added ability to handle disparate exception types in the same catch statement.
+```
+public class MultipleTypeInCatch {
+     
+     public void multipleTypeInCatch(){
+         try {
+         } catch (IllegalArgumentException | NullPointerException e){
+           System.out.println("Something bad happened %s%n", e.getMessage());
+         }    
+}
+```
+---
+
 Create your own AutoCloseable Interface and open in try for it close automatically.
+```
+public class FinallyClause {
+    public void finallyClause(String path){
+        try(InputStream inputStream = new FileInputStream(path)){
+          // TO DO
+        } catch(IOException ioe){
+          throw new RuntimeException(ioe);
+        }
+}
+```
 
 e.g. – 
 
