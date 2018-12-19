@@ -55,6 +55,7 @@ Regular expressions – Pattern and Matcher
 - **Lecture 7**  – Generics in Java. Why Generics? Code reuse, type safety. Generic types can be bounded by other generic types. 
 
 Number <- Integer (normally works)
+
 Echo<Number> <- Echo<Integer> (NOOOOOOOO)
   
 Generic types are not reified; i.e., after compilation they are removed and not available at runtime. This is also called type erasure. 
