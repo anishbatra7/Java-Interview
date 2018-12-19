@@ -53,15 +53,18 @@ public @interface Authorized {
 Regular expressions – Pattern and Matcher
 
 - **Lecture 7**  – Generics in Java. Why Generics? Code reuse, type safety. Generic types can be bounded by other generic types. 
-
+```
 Number <- Integer (normally works)
 
 Echo<Number> <- Echo<Integer> (NOOOOOOOO)
-  
+```  
 Generic types are not reified; i.e., after compilation they are removed and not available at runtime. This is also called type erasure. 
 
 Generic parameters can also be defined at a method level. But not at a field level .
-Remember that Echo<Integer> is not an instance of type Echo<Number> (whereas Integer is an instance of type Number)? Keep that in mind and look at the following code? Enters Wildcards!!!
+```
+Remember that Echo<Integer> is not an instance of type Echo<Number>,
+```   
+(whereas Integer is an instance of type Number)? Keep that in mind and look at the following code? Enters Wildcards!!!
   
 We’ve made GiftPrinter take a Gift of generic type Object and as we know, Gift<Computer> does not extend from Gift<Object> 
 What we want is the generically typed Gift which is the supertype of all other generically typed Gift types. In Java, this is called the wildcard type! 
